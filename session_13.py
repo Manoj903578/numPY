@@ -273,7 +273,7 @@ print("Identity Array:\n", identity_array)  # Identity Array: [[1. 0. 0.][0. 1. 
 
 
 
-a1 = np.arange(10)
+a1 = np.arange(10,dtype=np.int64)  # 1D array with values from 0 to 9
 a2 = np.arange(12).reshape(3,4)
 a3 = np.arange(8).reshape(2,2,2)
 
@@ -313,3 +313,334 @@ print("a3 shape:", a3.shape)  # a3 shape: (2, 2, 2)
 print("a1 size:", a1.size)  # a1 size: 10
 print("a2 size:", a2.size)  # a2 size: 12
 print("a3 size:", a3.size)  # a3 size: 8
+
+#---------------------------------------------------itemsize---------------------------------------------------
+# The itemsize attribute returns the size of each element in the array in bytes.  
+# It is an integer value that indicates how many bytes each element in the array takes up.
+
+# The itemsize attribute is useful for determining the size of each element in the array.
+# It can be used to check the size of each element in a 1D, 2D, or 3D array.
+# The itemsize attribute can also be used to check the size of each element in the array.
+# The itemsize attribute can also be used to check the size of each element in the array.
+print("a1 itemsize:", a1.itemsize)  # a1 itemsize: 8
+print("a2 itemsize:", a2.itemsize)  # a2 itemsize: 8
+print("a3 itemsize:", a3.itemsize)  # a3 itemsize: 8
+#---------------------------------------------------nbytes---------------------------------------------------
+# The nbytes attribute returns the total number of bytes used by the array.
+# It is an integer value that indicates how many bytes the array takes up in memory.
+# The nbytes attribute is useful for determining the total number of bytes used by the array.
+# It can be used to check the total number of bytes used by a 1D, 2D, or 3D array.
+
+# The nbytes attribute can also be used to check the total number of bytes used by the array.
+print("a1 nbytes:", a1.nbytes)  # a1 nbytes: 80
+print("a2 nbytes:", a2.nbytes)  # a2 nbytes: 96
+print("a3 nbytes:", a3.nbytes)  # a3 nbytes: 64
+#---------------------------------------------------strides---------------------------------------------------
+# The strides attribute returns the number of bytes to step in each dimension when traversing the array.
+# It is a tuple of integers that indicates how many bytes to step in each dimension when traversing the array.
+# The strides attribute is useful for determining how many bytes to step in each dimension when traversing the array.
+# It can be used to check how many bytes to step in each dimension when traversing a 1D, 2D, or 3D array.
+
+
+#----------------------------------------------------astype---------------------------------------------------
+# The astype() method is used to cast the array to a specified data type.
+# It takes a single argument, which specifies the data type to cast the array to. 
+# The data type can be specified as a string or as a NumPy data type object.
+
+# The astype() method can be used to change the data type of the array without changing its data.
+# It can be used to change the data type of the array to a different data type.
+# The astype() method can also be used to change the data type of the array to a different data type.
+
+print(a3.dtype)  # dtype: int64
+print(a3.astype(np.float32).dtype)  # dtype: float32
+
+
+
+# array operations
+# NumPy arrays support a wide range of mathematical operations, including addition, subtraction, multiplication, and division.  
+# These operations can be performed element-wise on the array, meaning that the operation is applied to each element of the array individually.
+# NumPy arrays also support broadcasting, which allows for operations between arrays of different shapes. 
+# Broadcasting automatically expands the smaller array to match the shape of the larger array, allowing for element-wise operations.
+# Broadcasting is a powerful feature of NumPy that allows for operations between arrays of different shapes.
+# It allows for operations between arrays of different shapes without the need for explicit loops or reshaping.
+
+
+a1 = np.random.random((3,3))
+a1 = np.round(a1*10)
+a2 = np.random.random((3,3))
+a2 = np.round(a2*10)
+print("a1:\n", a1)  # a1: [[ 1.  2.  3.][ 4.  5.  6.][ 7.  8.  9.]]
+print("a2:\n", a2)  # a2: [[10. 11. 12.][13. 14. 15.][16. 17. 18.]]
+
+
+# Element-wise addition
+a3 = a1 + a2  # Add a1 and a2 element-wise
+print("Element-wise addition:\n", a3)  # Element-wise addition: [[11. 13. 15.][17. 19. 21.][23. 25. 27.]]
+
+# Element-wise subtraction
+a4 = a1 - a2  # Subtract a2 from a1 element-wise
+print("Element-wise subtraction:\n", a4)  # Element-wise subtraction: [[-9. -9. -9.][-9. -9. -9.][-9. -9. -9.]]
+
+# Element-wise multiplication
+a5 = a1 * a2  # Multiply a1 and a2 element-wise
+print("Element-wise multiplication:\n", a5)  # Element-wise multiplication: [[10. 22. 36.][52. 70. 90.][112. 136. 162.]] 
+
+# Element-wise division
+a6 = a1 / a2  # Divide a1 by a2 element-wise
+print("Element-wise division:\n", a6)  # Element-wise division: [[0.1 0.2 0.3][0.4 0.5 0.6][0.7 0.8 0.9]]
+
+# Element-wise exponentiation
+a7 = a1 ** 2  # Raise a1 to the power of 2 element-wise
+print("Element-wise exponentiation:\n", a7)  # Element-wise exponentiation: [[ 1.  4.  9.][16. 25. 36.][49. 64. 81.]]
+
+# Element-wise square root
+a8 = np.sqrt(a1)  # Take the square root of a1 element-wise 
+# Note: The square root of a negative number is not defined in the real number system, so it will return NaN for negative numbers.
+print("Element-wise square root:\n", a8)  # Element-wise square root: [[1. 1.41421356 1.73205081][2. 2.23606798 2.44948974][2.64575131 2.82842712 3.]]
+
+# Element-wise logarithm
+a9 = np.log(a1)  # Take the natural logarithm of a1 element-wise
+# Note: The logarithm of a negative number is not defined in the real number system, so it will return NaN for negative numbers.  
+
+
+
+print("Element-wise logarithm:\n", a9)  # Element-wise logarithm: [[0. 0.69314718 1.09861229][1.38629436 1.60943791 1.79175947][1.94591015 2.07944154 2.19722458]]
+# Element-wise sine 
+a10 = np.sin(a1)  # Take the sine of a1 element-wise
+print("Element-wise sine:\n", a10)  # Element-wise sine: [[0.84147098 0.90929743 0.14112001][0.6569866  0.95892427 0.41211849][0.6569866  0.90929743 0.14112001]]
+# Element-wise cosine
+a11 = np.cos(a1)  # Take the cosine of a1 element-wise
+print("Element-wise cosine:\n", a11)  # Element-wise cosine: [[-0.54030231 -0.41614684 -0.9899925 ][-0.75390225 -0.28366219 -0.91113026][-0.75390225 -0.41614684 -0.9899925 ]]
+# Element-wise tangent
+a12 = np.tan(a1)  # Take the tangent of a1 element-wise
+print("Element-wise tangent:\n", a12)  # Element-wise tangent: [[-1.55740772 -2.18503986 -0.14254654][-0.87144798 -3.38051501 -0.45231565][-0.87144798 -2.18503986 -0.14254654]]
+
+
+
+#relational operators
+# NumPy arrays support relational operators, which can be used to compare the elements of the array.  
+# The relational operators include:
+# 1. ==: Equal to
+# 2. !=: Not equal to
+# 3. >: Greater than
+# 4. <: Less than
+# 5. >=: Greater than or equal to
+# 6. <=: Less than or equal to
+# These operators can be used to compare the elements of the array and return a new array with the results of the comparison.
+# The relational operators can be used to compare the elements of the array and return a new array with the results of the comparison.    
+# The relational operators can be used to compare the elements of the array and return a new array with the results of the comparison.
+
+print(a2==3)  # Compare a2 with 15 and return a new array with the results of the comparison
+# Output: [[False False False][False False  True][False False False]] 
+
+print(a2!=3)  # Compare a2 with 15 and return a new array with the results of the comparison
+# Output: [[ True  True  True][ True  True False][ True  True  True]]
+print(a2>3)  # Compare a2 with 15 and return a new array with the results of the comparison
+# Output: [[False False False][ True  True  True][ True  True  True]]
+print(a2<3)  # Compare a2 with 15 and return a new array with the results of the comparison
+# Output: [[ True  True  True][False False False][False False False]]
+print(a2>=3)  # Compare a2 with 15 and return a new array with the results of the comparison
+# Output: [[False False False][ True  True  True][ True  True  True]]
+print(a2<=3)  # Compare a2 with 15 and return a new array with the results of the comparison
+# Output: [[ True  True  True][False False False][False False False]]
+
+
+
+#vectorized operations
+# NumPy arrays support vectorized operations, which allow for operations between arrays of different shapes.  
+# Broadcasting automatically expands the smaller array to match the shape of the larger array, allowing for element-wise operations.
+# Broadcasting is a powerful feature of NumPy that allows for operations between arrays of different shapes.
+# It allows for operations between arrays of different shapes without the need for explicit loops or reshaping
+
+#arithmatic operations
+# NumPy arrays support a wide range of mathematical operations, including addition, subtraction, multiplication, and division.
+print(a1+a2)  # Print the array a1
+# Output: [[ 1.  2.  3.][ 4.  5.  6.][ 7.  8.  9.]]
+print(a1-a2)  # Print the array a1
+# Output: [[-9. -9. -9.][-9. -9. -9.][-9. -9. -9.]]
+print(a1*a2)  # Print the array a1
+# Output: [[10. 22. 36.][52. 70. 90.][112. 136. 162.]]
+print(a1/a2)  # Print the array a1
+# Output: [[0.1 0.2 0.3][0.4 0.5 0.6][0.7 0.8 0.9]]
+print(a1**2)  # Print the array a1
+# Output: [[ 1.  4.  9.][16. 25. 36.][49. 64. 81.]]
+print(np.sqrt(a1))  # Print the array a1
+# Output: [[1. 1.41421356 1.73205081][2. 2.23606798 2.44948974][2.64575131 2.82842712 3.]]
+print(np.log(a1))  # Print the array a1
+# Output: [[0. 0.69314718 1.09861229][1.38629436 1.60943791 1.79175947][1.94591015 2.07944154 2.19722458]]
+print(np.sin(a1))  # Print the array a1
+
+
+
+
+
+#methods
+# NumPy arrays have a number of methods that can be used to manipulate and analyze the data in the array.
+# Some of the most commonly used methods are:MAX/MIN/SUM/prod/mean/std/var
+# 1. max(): Returns the maximum value of the array elements along a given axis.
+# 2. min(): Returns the minimum value of the array elements along a given axis.
+# 3. sum(): Returns the sum of the array elements along a given axis.
+# 4. prod(): Returns the product of the array elements along a given axis.
+# 5. mean(): Returns the mean of the array elements along a given axis.
+# 6. std(): Returns the standard deviation of the array elements along a given axis.
+# 7. var(): Returns the variance of the array elements along a given axis.
+# 8. median(): Returns the median of the array elements along a given axis.
+# 9. percentile(): Returns the nth percentile of the array elements along a given axis.
+print("a1 max:", a1.max())  # a1 max: 9.0
+print("a1 min:", a1.min())  # a1 min: 0.0
+print(np.max(a1,axis=(0,1)))  # a1 max: 9.0
+print(np.min(a1,axis=(0)))  # a1 min: 0.0
+print(np.sum(a1,axis=(0)))  # a1 sum: 45.0
+print(np.prod(a1,axis=(0)))  # a1 prod: 362880.0 
+print(np.mean(a1,axis=(0)))  # a1 mean: 5.0
+print(np.std(a1,axis=(0)))  # a1 std: 2.581988897471611
+print(np.var(a1,axis=(0)))  # a1 var: 6.666666666666667
+print(np.median(a1,axis=(0)))  # a1 median: 5.0
+print(np.percentile(a1, 50,axis=(0)))  # a1 percentile: 5.0
+
+#dot product
+# The dot() method computes the dot product of two arrays.
+# It takes two arguments: the first array and the second array.
+# The dot() method can be used to compute the dot product of two arrays.
+# The dot() method can also be used to compute the dot product of two arrays.
+
+
+print(np.dot(a1,a2))  # a1 dot: [[ 90.  96. 102.][216. 232. 248.][342. 368. 394.]]
+print(np.dot(a1,a2.T))  # a1 dot: [[ 90.  96. 102.][216. 232. 248.][342. 368. 394.]]
+
+
+
+#rounding
+# The round() method rounds the elements of the array to the nearest integer.
+# It takes a single argument, which specifies the number of decimal places to round to.
+# The round() method can be used to round the elements of the array to the nearest integer.
+print(np.round(np.random.random((2,3))*100))  # a1 round: [[ 1.  2.  3.][ 4.  5.  6.][ 7.  8.  9.]]
+
+
+#floor
+# The floor() method rounds the elements of the array down to the nearest integer.
+# It takes a single argument, which specifies the number of decimal places to round to.
+# The floor() method can be used to round the elements of the array down to the nearest integer.
+
+print('*'*50)
+print(np.floor(np.random.random((2,3))*100))  # a1 floor: [[ 1.  2.  3.][ 4.  5.  6.][ 7.  8.  9.]]
+
+
+
+
+
+#----------------------------------------------------indexing and slicing---------------------------------------------------
+# NumPy arrays support indexing and slicing, which allow for accessing and modifying the elements of the array.
+# Indexing allows for accessing individual elements of the array, while slicing allows for accessing a range of elements in the array.
+# Indexing and slicing can be used to access and modify the elements of the array.
+
+a1 = np.arange(10)
+a2 = np.arange(12).reshape(3,4)
+a3 = np.arange(8).reshape(2,2,2)
+
+
+# locating individual element in 2d array
+print("#"*50)
+print("locating array element")
+print(a2)
+print(a2[1,2])  # Print the element at row 0, column 0 of a2
+# locating individual element in 3d array
+print("#"*50)
+print("locating 3D array element")
+print(a3)
+print(a3[1,0,1])  # Print the element at row 1, column 0, depth 1 of a3
+print(a3[0,0,0])
+
+
+
+# slicing
+# Slicing allows for accessing a range of elements in the array.
+# It takes two arguments: the start index and the end index.
+# The start index is the index of the first element to include in the slice, while the end index is the index of the first element to exclude from the slice.
+# The slice operator can be used to access a range of elements in the array.
+print("#"*50,"printin first row of a2","#"*50)
+print(a2[0,:])
+print("#"*50,"printin 3rd column of a2","#"*50)
+print(a2[:,2])
+print(a2[1:3,1:3])  # Print the elements from row 1 to 2 and column 1 to 2 of a2 [[ 5  6][ 9 10]]
+
+
+
+a5=np.arange(27).reshape(3,3,3)
+print("#"*50,"printin 3D array a5","#"*50)
+print(a5)
+print(a5[1,1:,1:])  # Print the elements from row 1 to 2 and column 1 to 2 of a5 [[ 5  6][ 9 10]]
+print("columns")
+print(a5[1,:,:1])
+
+
+
+#----------------------------------------------------itration---------------------------------------------------
+# NumPy arrays support iteration, which allows for iterating over the elements of the array.
+# Iteration can be used to access and modify the elements of the array.
+
+for i in a1:
+    print(i)  # Print each element of a1
+
+for i in a2:  
+    print(i)  # Print each row of a2
+
+for i in a5:
+    print(i)  # Print each row of a5
+
+for i in a5.flat:
+    print(i)  # Print each element of a5
+
+for i in a5.flatten():
+    print(i)  # Print each element of a5
+
+for i in np.nditer(a5):
+    print(i)  # Print each element of a5
+
+
+# Transpose
+# The transpose() method transposes the array, which means that it swaps the rows and columns of the array.     
+# It takes no arguments.
+# The transpose() method can be used to transpose the array.
+# The transpose() method can also be used to transpose the array.
+# The transpose() method can also be used to transpose the array.
+print("#"*50,"printin transpose of a2","#"*50)
+print(a2)  
+print(a2.T)  # Print the transpose of a2
+
+
+
+
+
+#-------------------------------------------stacking------------------------------
+# Stacking is the process of joining two or more arrays along a new axis. 
+# It can be used to combine multiple arrays into a single array.
+# Stacking can be done along any axis, and it can be used to combine arrays of different shapes.
+
+
+a6=np.arange(12).reshape(3,4)
+a7=np.arange(12,24).reshape(3,4)
+# ---------------------------------------------horizonatl stacking------------------------------
+print("#"*50,"printin horizontal stacking","#"*50)
+print(np.hstack((a6,a7)))  # Stack a6 and a7 horizontally
+
+# ---------------------------------------------vertical  stacking------------------------------
+print("#"*50,"printin vertical stacking","#"*50)
+print(np.vstack((a6,a7)))  # Stack a6 and a7 vertically
+# ---------------------------------------------depth stacking------------------------------ 
+print("#"*50,"printin depth stacking","#"*50)
+print(np.dstack((a6,a7)))  # Stack a6 and a7 depth-wise
+
+
+#---------------------------------------------------------splitting---------------------------------------------------
+# Splitting is the process of dividing an array into multiple sub-arrays.
+# It can be used to split an array into multiple sub-arrays along a specified axis.
+# Splitting can be done along any axis, and it can be used to split arrays of different shapes.
+
+
+#horizontal splitting
+print("#"*50,"printin horizontal splitting","#"*50) 
+print(np.hsplit(a6,2))  # Split a6 into two sub-arrays horizontally
+#vertical splitting
+print("#"*50,"printin vertical splitting","#"*50)
+print(np.vsplit(a6,3))  # Split a6 into three sub-arrays vertically
